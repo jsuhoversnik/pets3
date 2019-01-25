@@ -1,0 +1,12 @@
+{
+  "name": "jsuhover/328/pets2",
+  "authors": [
+    {
+      "name": "Jake Suhoversnik",
+      "email": "jsuhoversnik@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
