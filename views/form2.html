@@ -8,12 +8,15 @@
 
 <form action="results" method="post">
     <label>Color</label>
-    <select name="color" id="color">
+    <select class='form-control' name="color" id="color">
         <option value="none">Select a Color</option>
-        <option value="blue">blue</option>
-        <option value="pink">pink</option>
-        <option value="green">green</option>
-        <option value="orange">orange</option>
+        <repeat group="{{@colors}}" value="{{@colorOption}}">
+            <option>{{@colorOption}}</option>
+        </repeat>
+        <!--<option value="blue">blue</option>-->
+        <!--<option value="pink">pink</option>-->
+        <!--<option value="green">green</option>-->
+        <!--<option value="orange">orange</option>-->
     </select><br><br>
     <button>Submit</button>
 </form>

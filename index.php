@@ -11,6 +11,7 @@ session_start();
 
 //create and instance of the Base class
 $f3 = Base::instance();
+$f3->set('colors',array('pink','green','blue'));
 //turn on fat free error reporting
 $f3->set('DEBUG',3);
 
@@ -64,7 +65,7 @@ $f3->route('POST /order2', function($f3){
     $f3->set("animal", $_SESSION["animal"]);
     //print_r($_SESSION);
 
-    $view = new View;
+    $view = new Template();
     echo $view->render('views/form2.html');
 });
 
@@ -77,6 +78,9 @@ $f3->route('POST /results', function($f3){
     $template = new Template();
     echo $template->render('views/results.html');
 });
+
+//$f3=Base::instance();
+//$f3->set('colors',array('pink','green','blue'));
 
 //run fat free
 $f3->run();
