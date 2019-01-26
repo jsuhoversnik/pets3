@@ -55,18 +55,18 @@ $f3->route('GET /@pet', function ($f3, $params)
     }
 });
 
-$f3->route('GET /order', function(){
-    $view = new View;
-    echo $view->render('views/form1.html');
+$f3->route('GET|POST /order', function(){
+    $template = new Template();
+    echo $template->render('views/form1.html');
 });
-$f3->route('POST /order2', function($f3){
+$f3->route('GET|POST /order2', function($f3){
     //print_r($_POST);
     $_SESSION["animal"] = $_POST[animal];
     $f3->set("animal", $_SESSION["animal"]);
     //print_r($_SESSION);
 
-    $view = new Template();
-    echo $view->render('views/form2.html');
+    $template = new Template();
+    echo $template->render('views/form2.html');
 });
 
 $f3->route('POST /results', function($f3){
