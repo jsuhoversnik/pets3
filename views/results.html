@@ -6,9 +6,11 @@
 </head>
 <body>
 
+
 <h3>Results Page</h3>
 
-<p>Thank you for ordering a {{ @SESSION.color }} {{ @SESSION.animal }}!</p>
-
+<!--<p>Thank you for ordering a {{ @SESSION.color }} {{ @SESSION.animal }}!</p>-->
+<!--<p>Thank you for ordering a {{ @color }} {{ @animal }} !</p>-->
+<p>Thank you for ordering a {{ @SESSION[color] }} {{ @SESSION[animal] }} !</p>
 </body>
 </html>

@@ -11,17 +11,17 @@
     <label class="col-sm-1 control-label" for="color">Pet Color</label>
 
     <div class="col-sm-3">
-        <check if="{{isset(@errors['color'])}}">
-            <p>{{@errors['color']}}</p>
+        <check if="{{ isset(@errors['color']) }}">
+            <p>{{ @errors['color'] }}</p>
         </check>
         <select class='form-control' name="color" id="color">
             <option value="none">--Select--</option>
-            <repeat group="{{@colors}}" value="{{@colorOption}}">
+            <repeat group="{{ @colors }}" value="{{ @colorOption }}">
                 <option>
-                    <check if="{{@colorOption==@color}}">
+                    <check if="{{ @colorOption==@color }}">
                         selected
                     </check>
-                    {{@colorOption}}
+                    {{ @colorOption }}
                 </option>
             </repeat>
             <!--<option value="blue">blue</option>-->

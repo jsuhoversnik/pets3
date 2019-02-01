@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 require_once('vendor/autoload.php');
 
 session_start();
-
+//print_r($_SESSION);
 //create and instance of the Base class
 $f3 = Base::instance();
 $f3->set('colors',array('pink','green','blue'));
@@ -26,7 +26,7 @@ $f3->route('GET /', function(){
 
 $f3->route('GET /@pet', function ($f3, $params)
 {
-    print_r($params);
+//    print_r($params);
     $pet = $params['pet'];
 
     switch($pet) {
@@ -57,7 +57,7 @@ $f3->route('GET /@pet', function ($f3, $params)
 });
 
 $f3->route('GET|POST /order', function($f3){
-    $_SESSION=array();
+//    $_SESSION=array();
     if(isset($_POST['animal'])){
         $animal=$_POST['animal'];
         if(validString($animal)){
@@ -72,9 +72,10 @@ $f3->route('GET|POST /order', function($f3){
     echo $template->render('views/form1.html');
 });
 $f3->route('GET|POST /order2', function($f3){
-    $_SESSION=array();
+//    $_SESSION=array();
     if(isset($_POST['color'])){
         $color=$_POST['color'];
+//        $_SESSION['color']=$color;
         if(validColor($color)){
             $_SESSION['color']=$color;
             $f3->reroute('/result');
@@ -91,11 +92,12 @@ $f3->route('GET|POST /order2', function($f3){
     echo $template->render('views/form2.html');
 });
 
-$f3->route('POST /results', function($f3){
+$f3->route('GET|POST /result', function($f3){
     //print_r($_POST);
-    $_SESSION["color"] = $_POST[color];
-    $f3->set("color", $_SESSION["color"]);
-    //print_r($_SESSION);
+//    print_r($_SESSION);
+//    $_SESSION["color"] = $_POST["color"];
+//    $f3->set("color", $_SESSION["color"]);
+//    print_r($_SESSION);
 
     $template = new Template();
     echo $template->render('views/results.html');
